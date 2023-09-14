@@ -95,7 +95,7 @@ export default {
         baseUrl: process.env.ME_CONFIG_SITE_BASEURL || "/",
         cookieKeyName: "mongo-express",
         cookieSecret: "cookiesecret",
-        host: "localhost",
+        host: "0.0.0.0",
         port: 5000,
         requestSizeLimit: process.env.ME_CONFIG_REQUEST_SIZE || "50mb",
         sessionSecret: "sessionsecret",
