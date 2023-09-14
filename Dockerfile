@@ -21,6 +21,7 @@ COPY --from=builder /app/public /app/public/
 COPY --from=builder /app/lib /app/lib/
 COPY --from=builder /app/app.js /app/
 COPY --from=builder /app/config.default.js /app/
+COPY --from=builder /app/app-configs.js /app/app-configs.js
 COPY --from=builder /app/*.json /app/
 COPY --from=builder /app/.yarn /app/.yarn/
 COPY --from=builder /app/yarn.lock /app/
