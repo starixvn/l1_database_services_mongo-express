@@ -9,6 +9,7 @@ RUN npm run reg \
     && rm -rf /app/lib/scripts
 
 FROM hub.lumigame.com/docker-hub/library/node:18.1-alpine
+ARG NODE_ENV=production
 ENV NODE_ENV $NODE_ENV
 RUN mkdir /app && chown node:node /app
 WORKDIR /app
