@@ -112,7 +112,7 @@ export default {
     // set useBasicAuth to true if you want to authenticate mongo-express logins
     // if admin is false, the basicAuthInfo list below will be ignored
     // this will be false unless ME_CONFIG_BASICAUTH is set to the true
-    useBasicAuth: true,
+    useBasicAuth: false,
 
     basicAuth: {
         username: "admin",
