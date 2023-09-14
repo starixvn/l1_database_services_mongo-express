@@ -29,7 +29,7 @@ COPY --from=builder /app/yarn.lock /app/
 COPY --from=builder /app/.yarnrc.yml /app/
 COPY --from=builder /app/.npmignore /app/
 
-RUN yarn workspaces focus --production
+RUN yarn install --production
 
 HEALTHCHECK --interval=10s CMD curl --fail http://localhost:5000/status || exit 1
 
