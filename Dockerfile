@@ -1,4 +1,4 @@
-FROM hub.lumigame.com/docker-hub/library/node:18.1-alpine AS build
+FROM hub.lumigame.com/docker-hub/library/node:18.1-alpine AS builder
 
 WORKDIR /app
 COPY . .
@@ -16,16 +16,16 @@ WORKDIR /app
 USER node
 ENV PATH /app/node_modules/.bin:$PATH
 
-COPY --from=build /app/build /app/build/
-COPY --from=build /app/public /app/public/
-COPY --from=build /app/lib /app/lib/
-COPY --from=build /app/app.js /app/
-COPY --from=build /app/config.default.js /app/
-COPY --from=build /app/*.json /app/
-COPY --from=build /app/.yarn /app/.yarn/
-COPY --from=build /app/yarn.lock /app/
-COPY --from=build /app/.yarnrc.yml /app/
-COPY --from=build /app/.npmignore /app/
+COPY --from=builder /app/build /app/build/
+COPY --from=builder /app/public /app/public/
+COPY --from=builder /app/lib /app/lib/
+COPY --from=builder /app/app.js /app/
+COPY --from=builder /app/config.default.js /app/
+COPY --from=builder /app/*.json /app/
+COPY --from=builder /app/.yarn /app/.yarn/
+COPY --from=builder /app/yarn.lock /app/
+COPY --from=builder /app/.yarnrc.yml /app/
+COPY --from=builder /app/.npmignore /app/
 
 RUN apk -U add --no-cache \
         bash=5.1.16-r2 \
