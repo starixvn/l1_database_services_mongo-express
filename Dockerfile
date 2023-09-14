@@ -35,4 +35,4 @@ HEALTHCHECK --interval=10s CMD curl --fail http://localhost:5000/status || exit 
 
 EXPOSE 5000
 
-CMD ["/sbin/tini", "--", "yarn", "start"]
+CMD ["yarn", "start"]
