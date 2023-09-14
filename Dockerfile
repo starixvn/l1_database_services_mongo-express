@@ -28,9 +28,7 @@ COPY --from=builder /app/yarn.lock /app/
 COPY --from=builder /app/.yarnrc.yml /app/
 COPY --from=builder /app/.npmignore /app/
 
-RUN apk -U add --no-cache \
-        bash=5.1.16-r2 \
-        tini=0.19.0-r0 \
+RUN apk -U add --no-cache bash tini \
     && yarn workspaces focus --production
 
 HEALTHCHECK --interval=10s CMD curl --fail http://localhost:5000/status || exit 1
