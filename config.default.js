@@ -76,6 +76,7 @@ export default {
 
             // maxPoolSize: size of connection pool (number of connections to use)
             maxPoolSize: 4,
+            connectTimeoutMS: 3000
         },
 
         // set admin to true if you want to turn on admin features
