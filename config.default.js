@@ -65,7 +65,7 @@ export default {
 
         /** @type {import('mongodb').MongoClientOptions} */
         connectionOptions: {
-            connectTimeoutMS: 1000
+            connectTimeoutMS: 2000
         },
 
         // set admin to true if you want to turn on admin features
