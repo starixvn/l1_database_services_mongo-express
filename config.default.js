@@ -65,18 +65,7 @@ export default {
 
         /** @type {import('mongodb').MongoClientOptions} */
         connectionOptions: {
-            // ssl: connect to the server using secure SSL
-            ssl: getBoolean(process.env.ME_CONFIG_MONGODB_SSL, mongo.ssl),
-
-            // sslValidate: validate mongod server certificate against CA
-            sslValidate: getBoolean(process.env.ME_CONFIG_MONGODB_SSLVALIDATE, true),
-
-            // sslCA: single PEM file on disk
-            sslCA: process.env.ME_CONFIG_MONGODB_CA_FILE,
-
-            // maxPoolSize: size of connection pool (number of connections to use)
-            maxPoolSize: 4,
-            connectTimeoutMS: 3000
+            connectTimeoutMS: 1000
         },
 
         // set admin to true if you want to turn on admin features
