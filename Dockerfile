@@ -9,7 +9,7 @@ RUN npm run reg \
     && rm -rf /app/lib/scripts
 
 RUN rm -rf ./node_modules \
-    && yarn workspaces focus --production
+    && yarn install --production
 
 FROM hub.lumigame.com/docker-hub/library/node:18.1-alpine
 RUN apk -U add --no-cache bash tini curl
