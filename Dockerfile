@@ -28,10 +28,7 @@ COPY --from=builder /app/app.js /app/
 COPY --from=builder /app/config.default.js /app/
 COPY --from=builder /app/app-configs.js /app/
 COPY --from=builder /app/*.json /app/
-COPY --from=builder /app/.yarn /app/.yarn/
 COPY --from=builder /app/yarn.lock /app/
-COPY --from=builder /app/.yarnrc.yml /app/
-COPY --from=builder /app/.npmignore /app/
 COPY --from=builder /app/node_modules/ /app/node_modules/
 
 HEALTHCHECK --interval=10s CMD curl --fail http://localhost:5000/status || exit 1
