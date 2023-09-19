@@ -9,6 +9,7 @@ import https from "node:https";
 import configDefault from "./config.default.js";
 import middleware from "./lib/middleware.js";
 import { deepmerge } from "./lib/utils.js";
+import mongodb from 'mongodb';
 
 const pkg = JSON.parse(fs.readFileSync("./package.json"));
 
@@ -125,4 +126,15 @@ if (!config.site.baseUrl) {
     config.site.baseUrl = "/";
 }
 
-await bootstrap(config);
+//await bootstrap(config);
+try {
+    const { connectionString, connectionOptions } = config.mongodb;
+    console.log(`Start connecting to ${connectionString}`);
+    const client = await mongodb.MongoClient.connect(connectionString, connectionOptions);
+    console.log(`Finish connecting to ${connectionString}`);
+} catch (error) {
+    console.error(
+        `Could not connect to database using connectionString: ${connectionString.replace(/(mongo.*?:\/\/.*?:).*?@/, "$1****@")}"`
+    );
+    console.log(error);
+}
