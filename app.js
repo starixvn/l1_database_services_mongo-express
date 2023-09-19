@@ -128,6 +128,8 @@ if (!config.site.baseUrl) {
 }
 
 //await bootstrap(config);
+const { connectionString, connectionOptions } = config.mongodb;
+
 try {
     app.get("/status", (req, res) => {
         res.send({ status: "ok" });
@@ -139,7 +141,6 @@ try {
         console.log(`Express server started and running on port ${app.get("port")}!`);
     });
 
-    const { connectionString, connectionOptions } = config.mongodb;
     console.log(`Start connecting to ${connectionString}`);
     const client = await mongodb.MongoClient.connect(connectionString, connectionOptions);
     console.log(`Finish connecting to ${connectionString}`);
