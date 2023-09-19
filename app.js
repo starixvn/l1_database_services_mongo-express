@@ -10,6 +10,7 @@ import configDefault from "./config.default.js";
 import middleware from "./lib/middleware.js";
 import { deepmerge } from "./lib/utils.js";
 import mongodb from "mongodb";
+import http from "http";
 
 const pkg = JSON.parse(fs.readFileSync("./package.json"));
 
@@ -131,6 +132,13 @@ try {
     app.get("/status", (req, res) => {
         res.send({ status: "ok" });
     });
+    app.set("port", config.site.port);
+    
+    const httpServer = http.createServer(app);
+    httpServer.listen(app.get("port"), async () => {
+        console.log(`Express server started and running on port ${app.get("port")}!`);
+    });
+
     const { connectionString, connectionOptions } = config.mongodb;
     console.log(`Start connecting to ${connectionString}`);
     const client = await mongodb.MongoClient.connect(connectionString, connectionOptions);
