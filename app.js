@@ -133,9 +133,9 @@ try {
         res.send({ status: "ok" });
     });
     app.set("port", config.site.port);
-    
+
     const httpServer = http.createServer(app);
-    httpServer.listen(app.get("port"), async () => {
+    httpServer.listen(app.get("port"), config.site.host, async () => {
         console.log(`Express server started and running on port ${app.get("port")}!`);
     });
 
