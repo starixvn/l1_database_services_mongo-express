@@ -127,8 +127,8 @@ if (!config.site.baseUrl) {
     config.site.baseUrl = "/";
 }
 
-//await bootstrap(config);
-const { connectionString, connectionOptions } = config.mongodb;
+await bootstrap(config);
+/* const { connectionString, connectionOptions } = config.mongodb;
 
 try {
     app.get("/status", (req, res) => {
@@ -150,3 +150,4 @@ try {
     );
     console.log(error);
 }
+ */
