@@ -1,5 +1,5 @@
 export default {
     mongodb: {
-        connectionString: "mongodb+srv://lmn_backend:LmnBackend@local3_scdb.sb33.site/?tls=false",
+        connectionString: "mongodb://lmn_backend:LmnBackend@10.0.1.102:27106,10.0.1.102:27107,10.0.1.102:27108/?tls=false",
     },
 };
