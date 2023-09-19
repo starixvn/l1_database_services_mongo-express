@@ -9,7 +9,7 @@ import https from "node:https";
 import configDefault from "./config.default.js";
 import middleware from "./lib/middleware.js";
 import { deepmerge } from "./lib/utils.js";
-import mongodb from 'mongodb';
+import mongodb from "mongodb";
 
 const pkg = JSON.parse(fs.readFileSync("./package.json"));
 
@@ -128,6 +128,9 @@ if (!config.site.baseUrl) {
 
 //await bootstrap(config);
 try {
+    app.get("/status", (req, res) => {
+        res.send({ status: "ok" });
+    });
     const { connectionString, connectionOptions } = config.mongodb;
     console.log(`Start connecting to ${connectionString}`);
     const client = await mongodb.MongoClient.connect(connectionString, connectionOptions);
