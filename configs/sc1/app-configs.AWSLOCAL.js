@@ -1,5 +1,5 @@
 export default {
     mongodb: {
-        connectionString: "mongodb+srv://lmn_backend:LmnBackend@local3_scdb.sb33.site/?tls=false",
+        connectionString: "mongodb://lmn_backend:LmnBackend@10.6.48.200:27101,10.6.64.200:27101,10.6.80.200:27101/?replicaSet=L1AWSLocal",
     },
 };
