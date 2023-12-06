@@ -65,7 +65,7 @@ export default {
 
         /** @type {import('mongodb').MongoClientOptions} */
         connectionOptions: {
-            connectTimeoutMS: 2000
+            connectTimeoutMS: 2000,
         },
 
         // set admin to true if you want to turn on admin features
@@ -137,7 +137,7 @@ export default {
         subprocessTimeout: 300,
 
         // readOnly: if readOnly is true, components of writing are not visible.
-        readOnly: getBoolean(process.env.ME_CONFIG_OPTIONS_READONLY, false),
+        readOnly: true,
 
         // persistEditMode: if set to true, remain on same page after clicked on Save button
         persistEditMode: getBoolean(process.env.ME_CONFIG_OPTIONS_PERSIST_EDIT_MODE, false),
