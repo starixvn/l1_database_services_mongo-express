@@ -42,8 +42,8 @@ const loadConfig = async () => {
 async function bootstrap(config) {
     try {
         const resolvedMiddleware = await middleware(config);
-        app.use(config.site.baseUrl, resolvedMiddleware);
-        app.use(config.site.baseUrl, csrf());
+        app.use("/", resolvedMiddleware);
+        app.use("/", csrf());
 
         if (config.site.sslEnabled) {
             defaultPort = 443;
