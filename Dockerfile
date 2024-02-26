@@ -33,4 +33,4 @@ COPY --from=builder /app/node_modules/ /app/node_modules/
 
 HEALTHCHECK --interval=10s CMD curl --fail http://localhost:5000/status || exit 1
 
-CMD ["yarn", "start"]
+CMD [ "node", "--es-module-specifier-resolution=node", "./app.js" ]
