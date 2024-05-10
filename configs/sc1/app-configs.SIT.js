@@ -1,6 +1,7 @@
 export default {
     mongodb: {
-        connectionString: "mongodb://svc_readonly:SvcReadonly%40517@10.99.99.53:39130,10.99.99.54:39130,10.99.99.188:39130,10.99.99.187:39130/?replicaSet=SabaSIT",
+        connectionString:
+            "mongodb://lmn_backend:LmnBackend%40517@10.99.99.53:39430,10.99.99.54:39430,10.99.99.188:39430,10.99.99.187:39430/?replicaSet=SN-SIT",
     },
     site: {
         baseUrl: "/sit/mongoexpress/",
